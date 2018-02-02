@@ -17,6 +17,17 @@ import { AppRoutingModule } from './app.routing';
 
 // Layouts
 import { FullLayoutComponent } from './layouts/full-layout.component';
+import { LoginComponent } from './login/login.component';
+
+import { ProgressComponent } from './pages/progress/progress.component';
+import { Grafico1Component } from './pages/grafico1/grafico1.component';
+import { HeaderComponent } from './shared/header/header.component';
+import { SidebarComponent } from './shared/sidebar/sidebar.component';
+import { NopagefoundComponent } from './shared/nopagefound/nopagefound.component';
+import { RegisterComponent } from './register/register.component';
+import { FooterComponent } from './shared/footer/footer.component';
+import { PagesComponent } from './pages/pages.component';
+import { DashboardComponent } from 'app/dashboard/dashboard.component';
 
 @NgModule({
   imports: [
@@ -32,7 +43,17 @@ import { FullLayoutComponent } from './layouts/full-layout.component';
     NAV_DROPDOWN_DIRECTIVES,
     BreadcrumbsComponent,
     SIDEBAR_TOGGLE_DIRECTIVES,
-    AsideToggleDirective
+    AsideToggleDirective,
+    LoginComponent,
+    NopagefoundComponent,
+    ProgressComponent,
+    Grafico1Component,
+    HeaderComponent,
+    SidebarComponent,
+    RegisterComponent,
+    FooterComponent,
+    PagesComponent,
+    DashboardComponent
   ],
   providers: [{
     provide: LocationStrategy,
