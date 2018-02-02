@@ -11,13 +11,13 @@ import { PagesComponent } from 'app/pages/pages.component';
 import { DashboardComponent } from 'app/dashboard/dashboard.component';
 
 export const routes: Routes = [
-  { path: '', component: PagesComponent,
-    children: [
-      { path: 'dashboard', component: DashboardComponent },
-      { path: 'notfound', component: NopagefoundComponent },
-      { path: 'grafico1', component: Grafico1Component},
-      { path: '', redirectTo: '/dashboard', pathMatch: 'full' }
-    ]},
+  // { path: '', component: PagesComponent,
+  //   children: [
+  //     { path: 'dashboard', component: DashboardComponent },
+  //     { path: 'notfound', component: NopagefoundComponent },
+  //     { path: 'grafico1', component: Grafico1Component},
+  //     { path: '', redirectTo: '/dashboard', pathMatch: 'full' }
+  //   ]},
 
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
