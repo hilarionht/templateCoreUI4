@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
 // Layouts
-import { FullLayoutComponent } from './layouts/full-layout.component';
+// import { FullLayoutComponent } from './layouts/full-layout.component';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from 'app/register/register.component';
 import { NopagefoundComponent } from 'app/shared/nopagefound/nopagefound.component';

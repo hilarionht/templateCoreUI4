@@ -4,29 +4,41 @@
             <div class="col-md-6">
                 <div class="card mx-4">
                     <div class="card-body p-4">
-                        <h1>Register</h1>
-                        <p class="text-muted">Create your account</p>
-                        <div class="input-group mb-3">
-                            <span class="input-group-addon"><i class="icon-user"></i></span>
-                            <input type="text" class="form-control" placeholder="Username">
-                        </div>
+                        <form [formGroup]="forma" (ngSubmit)="registrarUsuario()" id="registerForm">
+                            <h1>Register</h1>
+                            <p class="text-muted">Create your account</p>
+                            <div class="input-group mb-3">
+                                <span class="input-group-addon"><i class="icon-user"></i></span>
+                                <input formControlName="nombre" name="nombre" type="text" required class="form-control" placeholder="Username">
+                            </div>
 
-                        <div class="input-group mb-3">
-                            <span class="input-group-addon">@</span>
-                            <input type="text" class="form-control" placeholder="Email">
-                        </div>
+                            <div class="input-group mb-3">
+                                <span class="input-group-addon">@</span>
+                                <input formControlName="correo" name="correo" type="email" required class="form-control" placeholder="Email">
+                            </div>
 
-                        <div class="input-group mb-3">
-                            <span class="input-group-addon"><i class="icon-lock"></i></span>
-                            <input type="password" class="form-control" placeholder="Password">
-                        </div>
+                            <div class="input-group mb-3">
+                                <span class="input-group-addon"><i class="icon-lock"></i></span>
+                                <input formControlName="password" name="password" required type="password" class="form-control" placeholder="Password">
+                            </div>
 
-                        <div class="input-group mb-4">
-                            <span class="input-group-addon"><i class="icon-lock"></i></span>
-                            <input type="password" class="form-control" placeholder="Repeat password">
-                        </div>
+                            <div class="input-group mb-4">
+                                <span class="input-group-addon"><i class="icon-lock"></i></span>
+                                <input formControlName="password2" name="password2" required type="password" class="form-control" placeholder="Repeat password">
+                            </div>
+                            <div class="form-group" *ngIf="forma.errors?.sonIguales && !forma.pristine">
+                                <p class="text-danger"> las contraseñas deben ser iguales</p>
 
-                        <button type="button" class="btn btn-block btn-success">Create Account</button>
+                            </div>
+                            <div class="input-group mb-4">
+                                <!-- <span class="input-group-addon"><i class="icon-lock"></i></span> -->
+                                <input formControlName="condiciones" name="condiciones" class="form-check-input" type="checkbox" value="" id="check1">
+                                <label class="form-check-label" for="condiciones">Estoy de Acuerdo con los <a href="#">Condiciones</a>
+                                    </label>
+                            </div>
+
+                            <button type="submit" class="btn btn-block btn-success">Create Account</button>
+                        </form>
                     </div>
                     <div class="card-footer p-4">
                         <div class="row">

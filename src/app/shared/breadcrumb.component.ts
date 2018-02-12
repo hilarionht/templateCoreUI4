@@ -3,7 +3,7 @@ import { Router, ActivatedRoute, NavigationEnd } from '@angular/router';
 import 'rxjs/add/operator/filter';
 
 @Component({
-  selector: 'app-breadcrumbs2',
+  selector: 'app-breadcrumbs',
   template: `
   <ng-template ngFor let-breadcrumb [ngForOf]="breadcrumbs" let-last = last>
     <li class="breadcrumb-item"

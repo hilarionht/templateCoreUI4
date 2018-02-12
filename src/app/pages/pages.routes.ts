@@ -1,10 +1,10 @@
-import {RouterModule, Routes } from '@angular/router';
+import { RouterModule, Routes } from '@angular/router';
 import { PagesComponent } from 'app/pages/pages.component';
 import { DashboardComponent } from 'app/dashboard/dashboard.component';
 import { NopagefoundComponent } from 'app/shared/nopagefound/nopagefound.component';
 import { Grafico1Component } from 'app/pages/grafico1/grafico1.component';
 
-const sharedRoutes: Routes =[
+const pagesRoutes: Routes =[
     { path: '', component: PagesComponent,
         children: [
           { path: 'dashboard', component: DashboardComponent },
@@ -15,4 +15,4 @@ const sharedRoutes: Routes =[
 }
 
 ];
-export const SHARED_ROUTES = RouterModule.forChild(sharedRoutes);
+export const PAGES_ROUTES = RouterModule.forChild(pagesRoutes);
