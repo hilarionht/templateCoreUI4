@@ -8,6 +8,7 @@ import { DashboardComponent } from 'app/dashboard/dashboard.component';
 import { SIDEBAR_TOGGLE_DIRECTIVES } from '../shared/sidebar.directive';
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { TabsModule } from 'ngx-bootstrap/tabs';
+import { ServiceModule } from '../services/service.module';
 
 @NgModule({
     declarations:[
@@ -24,9 +25,11 @@ import { TabsModule } from 'ngx-bootstrap/tabs';
     ],
     imports:[
         SharedModule,
+        ServiceModule,
         BsDropdownModule.forRoot(),
         TabsModule.forRoot(),
         PAGES_ROUTES
-    ]
+    ],
+    providers:[]
 })
 export class PagesModule { }
