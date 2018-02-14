@@ -7,8 +7,16 @@ import 'rxjs/add/operator/map';//(immportar solo lo que se use)
 @Injectable()
 export class UsuarioService {
 
+  usuario: Usuario;
+  token: string;
+  
+
   constructor( public http: HttpClient ) {
      console.log('servio de usuario listo');
+   }
+
+   estaLogeado() {
+     return ( this.token.length > 5 ) ? true : false;
    }
   crearUsuario( usuario: Usuario ){
   
@@ -20,13 +28,28 @@ export class UsuarioService {
         return res.usuario;
       });
   }
-  login(usuario:Usuario){
+
+  guardarStorage(id: string, token: string, usuario: Usuario ){
+    localStorage.setItem('id', id);
+    localStorage.setItem('token', token);
+    localStorage.setItem('usuario', JSON.stringify(usuario));
+    this.usuario = usuario;
+    this.token = token;
+  }
+
+  loginGoogle( token: string ) {
+    let url = URL_SERVICIOS + '/login/google';
+    return this.http.post(url, { token })
+                .map( (resp: any) => {
+                  this.guardarStorage(resp.id, resp.token, resp.usuario );
+                  return true;
+                });
+  }
+  login(usuario: Usuario){
     let url = URL_SERVICIOS + '/login';
     return this.http.post(url,usuario)
-              .map( (resp: any)=> {
-                localStorage.setItem('id', resp.id);
-                localStorage.setItem('token', resp.token);
-                localStorage.setItem('usuario', JSON.stringify(resp.usuario));
+              .map( (resp: any) => {
+                this.guardarStorage(resp.id, resp.token, resp.usuario );
                 return true;
               });
   }

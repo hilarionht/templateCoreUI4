@@ -1,3 +1,4 @@
+export { LoginGuardGuard } from './guards/login-guard.guard';
 export { HeaderService } from './shared/header.service';
 export { SidebarService } from './shared/sidebar.service';
 export { SharedService } from './shared/shared.service';

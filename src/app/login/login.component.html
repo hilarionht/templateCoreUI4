@@ -6,25 +6,29 @@
                     <div class="card p-4">
                         <div class="card-body">
                             <form ngNativeValidate #f="ngForm" (ngSubmit)="login(f)">
-                            <h1>Login</h1>
-                            <p class="text-muted">Sign In to your account</p>
-                            <div class="input-group mb-3">
-                                <span class="input-group-addon"><i class="icon-user"></i></span>
-                                <input ngModel name="email" type="email" class="form-control" required placeholder="Correo electronico">
-                            </div>
-                            <div class="input-group mb-4">
-                                <span class="input-group-addon"><i class="icon-lock"></i></span>
-                                <input ngModel name="password" type="password" class="form-control" required placeholder="Password">
-                            </div>
-                            <div class="row">
-                                <div class="col-6">
-                                    <button type="submit" class="btn btn-primary px-4">Login</button>
+                                <h1>Login</h1>
+                                <p class="text-muted">Sign In to your account</p>
+                                <div class="input-group mb-3">
+                                    <span class="input-group-addon"><i class="icon-user"></i></span>
+                                    <input ngModel name="email" type="email" class="form-control" required placeholder="Correo electronico">
                                 </div>
-                                <div class="col-6 text-right">
-                                    <button type="button" class="btn btn-link px-0">Forgot password?</button>
+                                <div class="input-group mb-4">
+                                    <span class="input-group-addon"><i class="icon-lock"></i></span>
+                                    <input ngModel name="password" type="password" class="form-control" required placeholder="Password">
                                 </div>
-                            </div>
-                        </form>
+                                <div class="row">
+                                    <div class="col-6">
+                                        <button type="submit" class="btn btn-primary px-4">Login</button>
+                                    </div>
+                                    <div class="col-6 text-right">
+
+                                        <button type="button" class="btn btn-sm btn-google-plus icon" style="margin-bottom: 4px" id="btnGoogle">
+                                                <span>Google+</span>
+                                                </button>
+                                        <button type="button" class="btn btn-link px-0">Forgot password?</button>
+                                    </div>
+                                </div>
+                            </form>
                         </div>
                     </div>
                     <div class="card text-white bg-primary py-5 d-md-down-none" style="width:44%">

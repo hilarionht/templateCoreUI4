@@ -2,6 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { UsuarioService } from '../services/service.index';
 import { Usuario } from '../models/usuario.model';
+import { Router } from '@angular/router';
+
+declare const gapi: any;
 
 @Component({
   selector: 'app-login',
@@ -10,22 +13,44 @@ import { Usuario } from '../models/usuario.model';
 })
 export class LoginComponent implements OnInit {
 
-  constructor( public _userService: UsuarioService) { }
+  auth2: any;
+  constructor( public _userService: UsuarioService, public router: Router ) { }
 
   ngOnInit() {
+    this.googleInit();
   }
-  login( forma:NgForm){
-    if(forma.invalid){
-      console.log(forma);
-      
-      return;
-    }
-    let usuario= new Usuario(null,forma.value.email, forma.value.passord);
-    this._userService.login(usuario).subscribe(resp => {
-      console.log(resp);
 
+  googleInit() {
+    gapi.load('auth2', () => {
+    this.auth2 = gapi.auth2.init({
+      client_id: '377013586154-njrbcn0itlm441q75ijmd6sgfvqnenvi.apps.googleusercontent.com',
+      cookiepolicy: 'single_host_origin',
+      scope: 'profile email'
+    });
+    this.attachSignin(document.getElementById('btnGoogle'));
+    });
+  }
+
+  attachSignin(element) {
+    this.auth2.attachClickHandler(element , {}, googleUser => {
+     
+      let token = googleUser.getAuthResponse().id_token;
+
+      this._userService.loginGoogle( token )
+                        .subscribe(() => this.router.navigate(['/dashboard']));
       
     });
+  }
+
+  login( forma: NgForm) {
+    if(forma.invalid) {
+      console.log(forma);
+      return;
+    }
+    console.log(forma.value);
+    
+    let usuario = new Usuario(null, forma.value.email, forma.value.password);
+    this._userService.login(usuario).subscribe(() => this.router.navigate(['/dashboard']));
     // console.log(forma.valid);
     // console.log(forma.value);
   }
