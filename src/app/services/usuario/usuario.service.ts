@@ -3,6 +3,7 @@ import { Usuario } from '../../models/usuario.model';
 import { HttpClient } from '@angular/common/http'
 import { URL_SERVICIOS } from '../../config/config';
 import 'rxjs/add/operator/map';//(immportar solo lo que se use)
+import { Router } from '@angular/router';
 
 @Injectable()
 export class UsuarioService {
@@ -11,14 +12,30 @@ export class UsuarioService {
   token: string;
   
 
-  constructor( public http: HttpClient ) {
-     console.log('servio de usuario listo');
+  constructor( public http: HttpClient, public router: Router ) {
+     this.cargarStorage();
    }
 
-   estaLogeado() {
-     return ( this.token.length > 5 ) ? true : false;
-   }
-  crearUsuario( usuario: Usuario ){
+  estaLogeado() {
+    return ( this.token.length > 5 ) ? true : false;
+  }
+  cargarStorage() {
+    if( localStorage.getItem('token')) {
+      this.token = localStorage.getItem('token');
+      this.usuario = JSON.parse(localStorage.getItem('usuario'));
+    }else{
+      this.token = '';
+      this.usuario = null;
+    }
+  }
+  logout() {
+    this.usuario = null;
+    this.token = '';
+    localStorage.removeItem('token');
+    localStorage.removeItem('usuario');
+    this.router.navigate(['/login']);
+  }
+  crearUsuario( usuario: Usuario ) {
   
     let url = URL_SERVICIOS + '/usuario';
     
