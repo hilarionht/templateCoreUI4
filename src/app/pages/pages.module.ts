@@ -1,3 +1,5 @@
+//PIPES
+import { PipesModule } from './../pipes/pipes.module';
 import { NgModule } from '@angular/core';
 import { PagesComponent } from 'app/pages/pages.component';
 import { Grafico1Component } from './grafico1/grafico1.component';
@@ -28,7 +30,8 @@ import { ServiceModule } from '../services/service.module';
         ServiceModule,
         BsDropdownModule.forRoot(),
         TabsModule.forRoot(),
-        PAGES_ROUTES
+        PAGES_ROUTES,
+        PipesModule
     ],
     providers:[]
 })

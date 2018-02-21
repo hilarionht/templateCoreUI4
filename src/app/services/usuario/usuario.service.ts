@@ -16,7 +16,7 @@ export class UsuarioService {
      this.cargarStorage();
    }
 
-  estaLogeado() {
+   isAuthenticated() {
     return ( this.token.length > 5 ) ? true : false;
   }
   cargarStorage() {
