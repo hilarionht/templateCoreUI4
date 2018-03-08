@@ -27,6 +27,12 @@ import { ServiceModule } from './services/service.module';
 
 
 @NgModule({
+   declarations: [
+    AppComponent,
+    NAV_DROPDOWN_DIRECTIVES,
+    LoginComponent,
+    RegisterComponent
+  ],
   imports: [
     BrowserModule,
     PagesModule,
@@ -36,12 +42,7 @@ import { ServiceModule } from './services/service.module';
     ReactiveFormsModule,
     ServiceModule
   ],
-  declarations: [
-    AppComponent,
-    NAV_DROPDOWN_DIRECTIVES,
-    LoginComponent,
-    RegisterComponent
-  ],
+ 
   providers: [{
     provide: LocationStrategy,
     useClass: HashLocationStrategy

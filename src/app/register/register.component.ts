@@ -1,7 +1,7 @@
 
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators} from '@angular/forms';
-import swal from 'sweetalert'
+import swal from 'sweetalert2'
 import { Usuario } from '../models/usuario.model';
 import { UsuarioService } from '../services/usuario/usuario.service';
 import { Router } from '@angular/router';
@@ -12,7 +12,7 @@ import { Router } from '@angular/router';
 })
 export class RegisterComponent implements OnInit {
 
-  forma: FormGroup;
+  public forma: FormGroup;
   constructor(
     public _usuarioService: UsuarioService,
     public router: Router
@@ -39,19 +39,19 @@ export class RegisterComponent implements OnInit {
       password2: new FormControl(null, Validators.required),
       condiciones: new FormControl(false)
     }, {validators: this.sonIguales( 'password', 'password2' )});
-    this.forma.setValue({
-      nombre: 'test',
-      correo: 'test@test.com',
-      password: '123456',
-      password2: '123456',
-      condiciones: true
-    });
+    // this.forma.setValue({
+    //   nombre: 'test',
+    //   correo: 'test@test.com',
+    //   password: '123456',
+    //   password2: '123456',
+    //   condiciones: true
+    // });
   }
 
   registrarUsuario() {
 
     if ( this.forma.invalid ){
-      console.log('error form invalid');
+      //console.log('error form invalid');
       
       return;
     }

@@ -1,10 +1,12 @@
+import { TipoProductoService } from './producto/tipo-producto.service';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import {
     UsuarioService,
     SharedService,
     SidebarService,
-    LoginGuardGuard} from './service.index';
+    LoginGuard,
+    ProductoService } from './service.index';
 import { HttpClientModule } from '@angular/common/http';
 
 
@@ -17,7 +19,10 @@ import { HttpClientModule } from '@angular/common/http';
         UsuarioService,
         SharedService,
         SidebarService,
-        LoginGuardGuard
+        LoginGuard,
+        ProductoService,
+        TipoProductoService,
+        ProductoService
     ],
     declarations:[]
 })

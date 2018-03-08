@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { UsuarioService } from '../services/service.index';
 import { Usuario } from '../models/usuario.model';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 
 declare const gapi: any;
 
@@ -14,7 +14,9 @@ declare const gapi: any;
 export class LoginComponent implements OnInit {
 
   auth2: any;
-  constructor( public _userService: UsuarioService, public router: Router ) { }
+  constructor(  public _userService: UsuarioService, 
+                public router: Router,
+                public activatedRoute: ActivatedRoute, ) { }
 
   ngOnInit() {
     this.googleInit();
@@ -44,14 +46,14 @@ export class LoginComponent implements OnInit {
 
   login( forma: NgForm) {
     if(forma.invalid) {
-      console.log(forma);
       return;
     }
-    console.log(forma.value);
     
     let usuario = new Usuario(null, forma.value.email, forma.value.password);
     this._userService.login(usuario).subscribe(() => this.router.navigate(['/dashboard']));
-    // console.log(forma.valid);
-    // console.log(forma.value);
+   
+  }
+  register(){
+    this.router.navigate(['/register']);
   }
 }

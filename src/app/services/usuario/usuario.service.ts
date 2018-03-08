@@ -4,7 +4,7 @@ import { HttpClient } from '@angular/common/http'
 import { URL_SERVICIOS } from '../../config/config';
 import 'rxjs/add/operator/map';//(immportar solo lo que se use)
 import { Router } from '@angular/router';
-
+import swal from 'sweetalert2'
 @Injectable()
 export class UsuarioService {
 
@@ -38,9 +38,11 @@ export class UsuarioService {
   crearUsuario( usuario: Usuario ) {
   
     let url = URL_SERVICIOS + '/usuario';
+   
     
     return this.http.post(url, usuario)
       .map((res: any) => {
+
         swal('Usuario Creado', usuario.email, 'success');
         return res.usuario;
       });
