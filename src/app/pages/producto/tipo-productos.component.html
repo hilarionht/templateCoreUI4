@@ -1,0 +1,87 @@
+<div class="row animated fadeIn">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-body">
+
+                <input #input (keyup)="buscarTipoProducto( input.value )" type="text" class="form-control" placeholder="Buscar producto...">
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--/.row-->
+<div class="row">
+    <div class="col-lg-12">
+        <div class="card">
+            <div class="card-header">
+                <i class="fa fa-align-justify"></i> Tipos de Productos registrados ( <small> {{ totalRegistros }} </small> )
+                <div class="text-right">
+                    <button [routerLink]="['/tipoproducto','nuevo']" type="button" class="btn waves-effect waves-light btn-rounded btn-primary">
+                    <i class="fa fa-plus"></i> 
+                    Tipo de Producto
+                    </button>
+                </div>
+            </div>
+            <div class="card-body">
+
+                <table class="table table-bordered table-striped table-sm">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>nombre</th>
+                            <th>Descripcion</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+
+                        <tr *ngFor="let tipoproducto of tipoproductos ; let i = index">
+                            <!-- <td>
+                    <img [src]="producto.img | imagen:'producto'" class="img-50 img-circle">
+                </td> -->
+                            <td>
+                                {{ i + 1}}
+                            </td>
+                            <td>
+                                {{ tipoproducto.nombre }}
+                            </td>
+                            <td>
+                                {{ tipoproducto.descripcion }}
+                            </td>
+
+                            <td>
+                                <button [routerLink]="['/tipoproducto', tipoproducto._id ]" class="btn btn-primary">
+                         <i class="fa fa-edit"></i>
+                        </button>
+
+                                <button (click)="borrarProducto( tipoproducto )" class="btn btn-danger">
+                        <i class="fa fa-trash-o"></i>
+                        </button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <nav>
+                    <ul class="pagination">
+                        <li class="page-item"><button (click)="cambiarDesde(-5)" class="page-link">
+                             Anteriores
+                        </button>
+                        </li>
+                        <!-- <li class="page-item active">
+                            <a class="page-link" href="#">1</a>
+                        </li>
+                        <li class="page-item"><a class="page-link" href="#">2</a></li>
+                        <li class="page-item"><a class="page-link" href="#">3</a></li>
+                        <li class="page-item"><a class="page-link" href="#">4</a></li> -->
+                        <li class="page-item"> <button (click)="cambiarDesde(5)" class="page-link">
+                                Siguientes
+                            </button></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </div>
+    <!--/.col-->
+</div>
+<!--/.row-->

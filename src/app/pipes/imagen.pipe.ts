@@ -12,18 +12,18 @@ export class ImagenPipe implements PipeTransform {
     if( !img ){
       return url + '/usuario/xxx'
     }
-    if( img.indexOf('hpps') >= 0 ) {
+    if( img.indexOf('https') >= 0 ) {
       return img;
 
     }
-    if( img.indexOf('hpp') >= 0 ) {
-      return img;
+    // if( img.indexOf('http') >= 0 ) {
+    //   return img;
 
-    }
+    // }
     switch  ( tipo ) {
-        case 'usuario':  url += '/usuario/' + img; break;
-        case 'hospital': url += '/hospital/' + img; break;
-        case 'medico':   url += '/medico/' + img; break;
+        case 'usuario':  url += '/usuarios/' + img; break;
+        case 'hospital': url += '/hospitales/' + img; break;
+        case 'medico':   url += '/medicos/' + img; break;
         default: 
           return url + '/usuario/xxx';
     }

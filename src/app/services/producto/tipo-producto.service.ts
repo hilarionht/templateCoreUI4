@@ -13,7 +13,12 @@ export class TipoProductoService {
   
   totalTipoProductos: number = 0;
 
-  constructor( public http: HttpClient, public router: Router, public _usuarioService:UsuarioService ) { }
+  constructor( 
+    public http: HttpClient, 
+    public router: Router, 
+    public _usuarioService:UsuarioService ) { 
+
+    }
   
   crearTipoProducto( nombre: string ) {
 
@@ -34,37 +39,58 @@ export class TipoProductoService {
                     });
   }
 
-  cargarTipoProductos() { 
-    let url = URL_SERVICIOS + '/tipo-producto';
-
+  cargarTipoProductos(desde: number=0) { 
+    let url = URL_SERVICIOS + '/tipo-producto?desde='+ desde;
+ console.log(url);
+ 
     return this.http.get( url ).map( (resp : any) => {
         this.totalTipoProductos = resp.total;
-        return resp.tipoProducto;
+        return resp;
      });
   }
 
   obtenerTipoProducto(id: string){
     let url = URL_SERVICIOS + '/tipo-producto/' + id;
+    url += '?token=' + this._usuarioService.token;
     return this.http.get( url )
               .map( (resp: any) => resp.tipoProducto );
   }
 
   buscarTipoProducto( termino: string ) {
 
-    let url = URL_SERVICIOS + '/busqueda/coleccion/tipo-producto/' + termino;
+    let url = URL_SERVICIOS + '/busqueda/coleccion/tipoproducto/' + termino;
     return this.http.get( url )
                 .map( (resp: any) => resp.producto );
 
   }
 
-  guardarTipoProducto( nombre: string ) {
+  guardarTipoProducto( tipoProducto: TipoProducto ) {
 
     let url = URL_SERVICIOS + '/tipo-producto';
 
-    url += '?token=' + this._usuarioService.token;
+    if ( tipoProducto._id ) {
+      // actualizando
+      url += '/' + tipoProducto._id;
+      url += '?token=' + this._usuarioService.token;
+     
+      
+      return this.http.put( url, tipoProducto )
+                .map( (resp: any) => {
+                  swal('Producto Actualizado', tipoProducto.nombre, 'success');
+                  return resp.tipoProducto;
+                });
 
-    return this.http.post( url, { nombre } )
-              .map( (resp: any) => resp.nombre );
+    }else {
+      // creando
+      url += '?token=' + this._usuarioService.token;
+      
+      return this.http.post( url, tipoProducto )
+              .map( (resp: any) => {
+                swal('Producto Creado', tipoProducto.nombre, 'success');
+                return resp.tipoProducto;
+               
+              });
+    }
   }
 
   eliminarTipoProducto( id: string){

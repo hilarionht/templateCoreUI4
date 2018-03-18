@@ -21,6 +21,9 @@ import { ProductoComponent } from './producto/producto.component';
 import { ProfileComponent } from './profile/profile.component';
 import { TipoProductoComponent } from './producto/tipo-producto.component';
 import { ProductosComponent } from './producto/productos.component';
+import { TipoProductosComponent } from './producto/tipo-productos.component';
+import { ModalUploadComponent } from '../components/modal-upload/modal-upload.component';
+import { UsuariosComponent } from './usuarios/usuarios.component';
 
 @NgModule({
     declarations:[
@@ -31,7 +34,10 @@ import { ProductosComponent } from './producto/productos.component';
         ProductoComponent,
         ProfileComponent,
         TipoProductoComponent,
-        ProductosComponent
+        ProductosComponent,
+        TipoProductosComponent,
+        ModalUploadComponent,
+        UsuariosComponent
     ],
     exports:[
         PagesComponent,

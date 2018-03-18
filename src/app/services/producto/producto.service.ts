@@ -31,8 +31,7 @@ export class ProductoService {
   buscarProducto( termino: string ) {
 
     let url = URL_SERVICIOS + '/search/coleccion/productos/' + termino;
-    console.log(url);
-    
+       
     return this.http.get( url )
                 .map( (resp: any) => resp.productos );
 

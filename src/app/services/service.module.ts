@@ -1,3 +1,4 @@
+import { ModalUploadService } from './../components/modal-upload/modal-upload.service';
 import { TipoProductoService } from './producto/tipo-producto.service';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
@@ -6,7 +7,9 @@ import {
     SharedService,
     SidebarService,
     LoginGuard,
-    ProductoService } from './service.index';
+    ProductoService,
+    SubirArchivoService
+ } from './service.index';
 import { HttpClientModule } from '@angular/common/http';
 
 
@@ -22,7 +25,8 @@ import { HttpClientModule } from '@angular/common/http';
         LoginGuard,
         ProductoService,
         TipoProductoService,
-        ProductoService
+        SubirArchivoService,
+        ModalUploadService
     ],
     declarations:[]
 })

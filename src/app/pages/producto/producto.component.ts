@@ -46,17 +46,17 @@ export class ProductoComponent implements OnInit {
       _id: new FormControl(null)
     });
     this._tipoProdService.cargarTipoProductos()
-                         .subscribe( tipoProductos => this.tipoProductos = tipoProductos);
+                         .subscribe( tipoProductos => this.tipoProductos = tipoProductos.tipoProducto);
   }
   cargarTipoProducto(){
     this._tipoProdService.cargarTipoProductos()
-    .subscribe( tipoProductos => this.tipoProductos = tipoProductos);
+    .subscribe( tipoProductos => {this.tipoProductos = tipoProductos.tipoProducto;});
   }
   cargarProducto( id: string ) {
+    
     this._productoService.obtenerProducto( id )
           .subscribe( producto => {
             this.forma.reset();
-            console.log( producto );
             this.forma.setValue({
               nombre: producto.nombre,
               tipoProducto: producto.tipoProducto._id,

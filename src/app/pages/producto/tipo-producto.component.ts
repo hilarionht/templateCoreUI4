@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { ProductoService, TipoProductoService } from '../../services/service.index';
 import { Producto } from '../../models/producto.model';
 import { TipoProducto } from 'app/models/tipoproducto.model';
+import { Router, ActivatedRoute } from '@angular/router';
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-tipo-producto',
@@ -11,12 +13,51 @@ import { TipoProducto } from 'app/models/tipoproducto.model';
 export class TipoProductoComponent implements OnInit {
 
   tipoProductos: TipoProducto [] = [];
-  constructor(public _tipoProductoService: TipoProductoService) { }
+  public tipoproducto: TipoProducto = new TipoProducto('','');
+  constructor(
+    public activatedRoute: ActivatedRoute,
+    public _tipoProductoService: TipoProductoService, 
+    public router: Router) {
+    
+      activatedRoute.params.subscribe( params => {
+
+      let id = params['id'];
+
+      if ( id !== 'nuevo' ) {
+        this.cargarTipoProducto( id );
+      }
+
+    });
+   }
 
   ngOnInit() {
   }
+  guardarTipoProducto( f: NgForm ) {
 
+    console.log( f.valid );
+    console.log( f.value );
 
+    if ( f.invalid ) {
+      return;
+    }
+
+    this._tipoProductoService.guardarTipoProducto( this.tipoproducto )
+            .subscribe( tproducto => {
+
+              this.tipoproducto._id = tproducto._id;
+
+              this.router.navigate(['/tipoproductos']);
+
+            });
+
+  }
+  cargarTipoProducto( id: string ) {
+    this._tipoProductoService.obtenerTipoProducto(id).subscribe(
+      tipoProd => {
+        this.tipoproducto= tipoProd
+      }
+    );
+  }
   buscarTipoProducto( termino: string ) {
 
     if ( termino.length <= 0 ) {
@@ -30,17 +71,17 @@ export class TipoProductoComponent implements OnInit {
   }
 
   cargarTipoProductos() {
-    this._tipoProductoService.cargarTipoProductos()
+    this._tipoProductoService.cargarTipoProductos(0)
             .subscribe( TipoProductoes => this.tipoProductos = TipoProductoes );
   }
 
 
-  guardarTipoProducto( tipoProducto: TipoProducto) {
+  // guardarTipoProducto( tipoProducto: TipoProducto) {
 
-    this._tipoProductoService.actualizartipoProducto( tipoProducto )
-            .subscribe();
+  //   this._tipoProductoService.actualizartipoProducto( tipoProducto )
+  //           .subscribe();
 
-  }
+  // }
 
   borrarTipoProducto( TipoProducto: TipoProducto ) {
 
