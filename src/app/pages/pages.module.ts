@@ -7,7 +7,7 @@ import { CommonModule } from '@angular/common';
 
 import { ReactiveFormsModule } from '@angular/forms';
 import { NgModule } from '@angular/core';
-import { PagesComponent } from 'app/pages/pages.component';
+
 import { Grafico1Component } from './grafico1/grafico1.component';
 import { ProgressComponent } from './progress/progress.component';
 import { SharedModule } from '../shared/shared.module';
@@ -22,12 +22,16 @@ import { ProfileComponent } from './profile/profile.component';
 import { TipoProductoComponent } from './producto/tipo-producto.component';
 import { ProductosComponent } from './producto/productos.component';
 import { TipoProductosComponent } from './producto/tipo-productos.component';
-import { ModalUploadComponent } from '../components/modal-upload/modal-upload.component';
+
 import { UsuariosComponent } from './usuarios/usuarios.component';
+import { MarcaComponent } from './marca/marca.component';
+import { ModeloComponent } from './modelo/modelo.component';
+import { ModelosComponent } from './modelo/modelos.component';
+import { MarcasComponent } from './marca/marcas.component';
 
 @NgModule({
     declarations:[
-        PagesComponent,
+       
         ProgressComponent,
         Grafico1Component,
         DashboardComponent,
@@ -36,11 +40,16 @@ import { UsuariosComponent } from './usuarios/usuarios.component';
         TipoProductoComponent,
         ProductosComponent,
         TipoProductosComponent,
-        ModalUploadComponent,
-        UsuariosComponent
+       
+        UsuariosComponent,
+        MarcaComponent,
+        MarcasComponent,
+        ModeloComponent,
+        ModelosComponent
+        
     ],
     exports:[
-        PagesComponent,
+     
         ProgressComponent,
         Grafico1Component,
         DashboardComponent

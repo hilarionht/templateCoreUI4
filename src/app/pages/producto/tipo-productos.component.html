@@ -3,7 +3,7 @@
         <div class="card">
             <div class="card-body">
 
-                <input #input (keyup)="buscarTipoProducto( input.value )" type="text" class="form-control" placeholder="Buscar producto...">
+                <input #input (keyup)="buscarTipoProducto( input.value )" type="text" class="form-control" placeholder="Buscar tipo producto...">
 
             </div>
         </div>
@@ -15,23 +15,23 @@
     <div class="col-lg-12">
         <div class="card">
             <div class="card-header">
-                <i class="fa fa-align-justify"></i> Tipos de Productos registrados ( <small> {{ totalRegistros }} </small> )
+                <i class="fa fa-align-justify"></i> TIPO DE PRODUCTOS REGISTRADOS ( <small> {{ totalRegistros }} </small> )
                 <div class="text-right">
                     <button [routerLink]="['/tipoproducto','nuevo']" type="button" class="btn waves-effect waves-light btn-rounded btn-primary">
                     <i class="fa fa-plus"></i> 
-                    Tipo de Producto
+                    AGREGAR
                     </button>
                 </div>
             </div>
             <div class="card-body">
 
-                <table class="table table-bordered table-striped table-sm">
+                <table class="table table-bordered table-striped table-sm table-hover table-responsive">
                     <thead>
                         <tr>
                             <th>#</th>
-                            <th>nombre</th>
-                            <th>Descripcion</th>
-                            <th></th>
+                            <th>NOMBRE</th>
+                            <th>DESCRIPCION</th>
+                            <th class="w150 center">OPCIONES</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -50,12 +50,12 @@
                                 {{ tipoproducto.descripcion }}
                             </td>
 
-                            <td>
-                                <button [routerLink]="['/tipoproducto', tipoproducto._id ]" class="btn btn-primary">
+                            <td class="center">
+                                <button [routerLink]="['/tipoproducto', tipoproducto._id ]" class="btn btn-sm btn-primary">
                          <i class="fa fa-edit"></i>
                         </button>
 
-                                <button (click)="borrarProducto( tipoproducto )" class="btn btn-danger">
+                                <button (click)="borrarProducto( tipoproducto )" class="btn btn-sm btn-danger">
                         <i class="fa fa-trash-o"></i>
                         </button>
                             </td>

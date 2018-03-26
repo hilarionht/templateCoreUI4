@@ -8,6 +8,8 @@ export class Producto{
         public fechaUltimoCambio: number,
         public cantidadAdvertencia:number,
         public descripcion?: string,
+        public marca?: string,
+        public modelo?: string,
         public _id?: string
     ) {
 

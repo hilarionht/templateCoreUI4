@@ -1,3 +1,7 @@
+import { ModelosComponent } from './modelo/modelos.component';
+import { ModeloComponent } from './modelo/modelo.component';
+import { MarcaComponent } from './marca/marca.component';
+import { MarcasComponent } from './marca/marcas.component';
 import { ProfileComponent } from './profile/profile.component';
 import { TipoProductosComponent } from './producto/tipo-productos.component';
 import { ProductosComponent } from './producto/productos.component';
@@ -10,11 +14,10 @@ import { NopagefoundComponent } from 'app/shared/nopagefound/nopagefound.compone
 import { Grafico1Component } from 'app/pages/grafico1/grafico1.component';
 import { TipoProductoComponent } from './producto/tipo-producto.component';
 import { UsuariosComponent } from './usuarios/usuarios.component';
+import { VerificaTokenGuard } from '../services/service.index';
 
 const pagesRoutes: Routes =[
-    { path: '', component: PagesComponent,
-         canActivate: [ LoginGuard] ,
-        children: [
+   
           { path: 'dashboard', component: DashboardComponent },
           { path: 'notfound', component: NopagefoundComponent },
           
@@ -27,9 +30,10 @@ const pagesRoutes: Routes =[
           { path: 'productos', component: ProductosComponent },
           { path: 'tipoproducto/:id', component: TipoProductoComponent },
           { path: 'tipoproductos', component: TipoProductosComponent },
+          { path: 'marca/:id', component: MarcaComponent },
+          { path: 'marcas', component: MarcasComponent },
+          { path: 'modelo/:id', component: ModeloComponent },
+          { path: 'modelos', component: ModelosComponent },
           { path: '', redirectTo: '/dashboard', pathMatch: 'full' }
-    ]
-}
-
 ];
 export const PAGES_ROUTES = RouterModule.forChild(pagesRoutes);

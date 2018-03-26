@@ -1,12 +1,18 @@
-import { TipoProductoService } from './../../services/producto/tipo-producto.service';
+import {  MarcaService, 
+          ModeloService, 
+          TipoProductoService, 
+          ProductoService} from './../../services/service.index';
+
 import { TipoProducto } from 'app/models/tipoproducto.model';
+import { Modelo } from '../../models/modelo.model';
+import { Marca } from '../../models/marca.model';
+import { Producto } from '../../models/producto.model';
 
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import swal from 'sweetalert2'
-import { Producto } from '../../models/producto.model';
-import { ProductoService } from '../../services/service.index';
 import { Router, ActivatedRoute } from '@angular/router';
+
 
 @Component({
   selector: 'app-producto',
@@ -18,21 +24,23 @@ export class ProductoComponent implements OnInit {
   public producto:Producto;
   public forma: FormGroup;
   tipoProductos: TipoProducto []= [];
+  marcas: Marca []= [];
+  modelos: Modelo []= [];
   constructor(
     public activatedRoute: ActivatedRoute,
     public _productoService: ProductoService,
     public _tipoProdService: TipoProductoService,
+    public _modeloService: ModeloService,
+    public _marcaService: MarcaService,
     public router: Router) {
-                activatedRoute.params.subscribe( params => {
-
-                  let id = params['id'];
-            
-                  if ( id !== 'nuevo' ) {
-                    this.cargarProducto( id );
-                  }
-            
-                });
+                  activatedRoute.params.subscribe( params => {
+                    let id = params['id'];
+                    if ( id !== 'nuevo' ) {
+                      this.cargarProducto( id );
+                    }
+                  });
                }
+               
   ngOnInit(): void {
     this.forma = new FormGroup({
       nombre: new FormControl(null, Validators.required),
@@ -43,10 +51,16 @@ export class ProductoComponent implements OnInit {
       cantidad: new FormControl(null, Validators.required),
       cantidadAdvertencia: new FormControl(null, Validators.required),
       descripcion: new FormControl(null),
+      marca: new FormControl(null),
+      modelo: new FormControl(null),
       _id: new FormControl(null)
     });
     this._tipoProdService.cargarTipoProductos()
                          .subscribe( tipoProductos => this.tipoProductos = tipoProductos.tipoProducto);
+    this._marcaService.cargarMarcas()
+                         .subscribe( marcas => this.marcas = marcas.marca);
+    //this.cargarModelos(this.producto.marca)                      
+   
   }
   cargarTipoProducto(){
     this._tipoProdService.cargarTipoProductos()
@@ -66,14 +80,19 @@ export class ProductoComponent implements OnInit {
               cantidad: producto.cantidad,
               cantidadAdvertencia: producto.cantidadAdvertencia,
               descripcion: producto.descripcion,
+              marca: producto.marca,
+              modelo: producto.modelo,
               _id: producto._id
             });
-            console.log(this.forma);
-            
+            this.cargarModelos(producto.marca);
           });
   }
+  cargarModelos(id:string){
+ 
+    this._modeloService.cargarModelosById(id)
+    .subscribe( modelos => this.modelos = modelos.modelosbyid);
+  }
   registrarProducto() {
-    console.log(this.forma);
     
     if(this.forma.invalid){
       return;
@@ -87,6 +106,8 @@ export class ProductoComponent implements OnInit {
       this.forma.value.fechaUltimoPrecio,
       this.forma.value.cantidadAdvertencia,
       this.forma.value.descripcion,
+      this.forma.value.marca,
+      this.forma.value.modelo,
       this.forma.value._id
       
     );

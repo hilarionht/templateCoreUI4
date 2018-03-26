@@ -1,8 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewContainerRef } from '@angular/core';
 import { ProductoService } from '../../services/service.index';
 import { Producto } from '../../models/producto.model';
 // declare var swal: any;
 import swal from 'sweetalert2'
+
 @Component({
   selector: 'app-productos',
   templateUrl: './productos.component.html',
@@ -15,7 +16,8 @@ export class ProductosComponent implements OnInit {
   cargando: boolean = true;
 
   public productos: Producto [] = [];
-  constructor(public _productoService: ProductoService) { }
+  constructor(
+    public _productoService: ProductoService) { }
 
   
   ngOnInit() {

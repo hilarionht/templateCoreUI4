@@ -1,3 +1,4 @@
+import { SharedModule } from './shared/shared.module';
 import { NgModule } from '@angular/core';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 
@@ -14,7 +15,7 @@ import { AppRoutingModule } from './app.routing';
 //Modulos
 
 // import { SharedModule } from 'app/shared/shared.module';
-import { PagesModule } from './pages/pages.module';
+//import { PagesModule } from './pages/pages.module';
 
 // Layouts
 
@@ -23,24 +24,28 @@ import { RegisterComponent } from './register/register.component';
 
 //servicios
 import { ServiceModule } from './services/service.module';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 
-
+import { PagesComponent } from './pages/pages.component';
 
 @NgModule({
    declarations: [
     AppComponent,
     NAV_DROPDOWN_DIRECTIVES,
     LoginComponent,
-    RegisterComponent
+    RegisterComponent,
+    PagesComponent
   ],
   imports: [
     BrowserModule,
-    PagesModule,
+   // PagesModule,
     AppRoutingModule,
     ChartsModule,
     FormsModule,
     ReactiveFormsModule,
-    ServiceModule
+    ServiceModule,BrowserAnimationsModule,
+    SharedModule
+    
   ],
  
   providers: [{

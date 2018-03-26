@@ -35,7 +35,7 @@ export class TipoProductosComponent implements OnInit {
   }
 
   cargarTipoProductos() {
-    this._tipoProdService.cargarTipoProductos()
+    this._tipoProdService.cargarTipoProductos(this.desde,5)
           .subscribe(
           ( resp: any ) =>{
           this.totalRegistros = resp.total;

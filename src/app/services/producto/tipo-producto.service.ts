@@ -34,14 +34,14 @@ export class TipoProductoService {
     let url = URL_SERVICIOS + '/tipo-producto';
     return this.http.post(url, tipoProducto)
                     .map((res: any) => {
-                      swal('Usuario Creado', tipoProducto.nombre, 'success');
+                      swal('Tipo de Producto Creado', tipoProducto.nombre, 'success');
                       return res.tipoProducto;
                     });
   }
 
-  cargarTipoProductos(desde: number=0) { 
-    let url = URL_SERVICIOS + '/tipo-producto?desde='+ desde;
- console.log(url);
+  cargarTipoProductos(desde: number=0,limite: number=0) { 
+    let url = URL_SERVICIOS + '/tipo-producto?desde='+ desde + '&limite='+limite;
+//  console.log(url);
  
     return this.http.get( url ).map( (resp : any) => {
         this.totalTipoProductos = resp.total;
@@ -58,9 +58,9 @@ export class TipoProductoService {
 
   buscarTipoProducto( termino: string ) {
 
-    let url = URL_SERVICIOS + '/busqueda/coleccion/tipoproducto/' + termino;
+    let url = URL_SERVICIOS + '/search/coleccion/tipoproductos/' + termino;
     return this.http.get( url )
-                .map( (resp: any) => resp.producto );
+                .map( (resp: any) => resp.tipoproductos );
 
   }
 

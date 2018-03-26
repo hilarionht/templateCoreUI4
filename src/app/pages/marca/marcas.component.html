@@ -1,0 +1,81 @@
+<div class="row animated fadeIn">
+    <div class="col-lg-10">
+        <div class="card">
+            <div class="card-body">
+
+                <input #input (keyup)="buscarMarca( input.value )" type="text" class="form-control" placeholder="Buscar marcas...">
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--/.row-->
+<div class="row">
+    <div class="col-lg-10">
+        <div class="card">
+            <div class="card-header">
+                <i class="fa fa-align-justify"></i> TIPOS DE MARCAS REGISTRADOS ( <small> {{ totalRegistros }} </small> )
+                <div class="text-right">
+                    <button (click)="crearMarca()" type="button" class="btn waves-effect waves-light btn-rounded btn-primary">
+                  <i class="fa fa-plus"></i> 
+                  TIPO DE MARCA
+                  </button>
+                </div>
+            </div>
+            <div class="card-body">
+
+                <table class="table table-bordered table-striped table-sm">
+                    <thead>
+                        <tr>
+
+                            <th>NOMBRE</th>
+                            <th class="w150">OPCIONES</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+
+                        <tr *ngFor="let marca of marcas">
+                            <!-- <td>
+                  <img [src]="producto.img | imagen:'producto'" class="img-50 img-circle">
+              </td> -->
+
+                            <td>
+                                <input [(ngModel)]="marca.nombre" name="nombre" type="text" class="form-control text-uppercase" placeholder="Nombre..">
+                            </td>
+
+                            <td>
+                                <button [routerLink]="['/marca', marca._id ]" class="btn btn-sm btn-primary ">
+                                    <i class="fa fa-edit"></i>
+                                  </button>
+                                <button (click)="guardarMarca( marca )" class="btn btn-sm btn-success">
+                                    <i class="fa fa-save"></i>
+                                </button>
+                                <button (click)="borrarMarca( marca )" class="btn btn-sm btn-danger"><i class="fa fa-trash-o"></i></button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <nav>
+                    <ul class="pagination">
+                        <li class="page-item"><button (click)="cambiarDesde(-5)" class="page-link">
+                           Anteriores
+                      </button>
+                        </li>
+                        <!-- <li class="page-item active">
+                          <a class="page-link" href="#">1</a>
+                      </li>
+                      <li class="page-item"><a class="page-link" href="#">2</a></li>
+                      <li class="page-item"><a class="page-link" href="#">3</a></li>
+                      <li class="page-item"><a class="page-link" href="#">4</a></li> -->
+                        <li class="page-item"> <button (click)="cambiarDesde(5)" class="page-link">
+                              Siguientes
+                          </button></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </div>
+    <!--/.col-->
+</div>
+<!--/.row-->

@@ -1,0 +1,33 @@
+<div class="card" style="width: 30rem;">
+    <div class="card-header">
+        <strong>MARCA: </strong> {{ marca.nombre}}
+    </div>
+
+    <table class="table table-sm table-striped table-responsive">
+        <thead>
+            <tr>
+
+                <th scope="col" colspan="2">MODELOS</th>
+                <th><button (click)="crearModelo()" class="btn btn-sm btn-success">
+                    <i class="fa fa-plus"></i>
+                  </button></th>
+            </tr>
+        </thead>
+        <tbody>
+
+            <tr *ngFor="let modelo of modelos">
+                <td colspan="2"> <input [(ngModel)]="modelo.nombre" name="nombre" type="text" class="form-control text-uppercase" placeholder="Nombre.."></td>
+                <th>
+                    <button (click)="editar( modelo )" class="btn btn-sm  btn-primary">
+                        <i class="fa fa-save"></i>
+                      </button>
+                    <button (click)="eliminar( modelo )" class="btn btn-sm  btn-danger">
+                        <i class="fa fa-trash"></i>
+                      </button>
+
+                </th>
+            </tr>
+        </tbody>
+    </table>
+    <button [routerLink]="['/marcas' ]" class="btn btn-sm btn-danger"><i class="fa fa-ban"></i> Regresar</button>
+</div>

@@ -1,3 +1,4 @@
+import { ModalUploadComponent } from './../components/modal-upload/modal-upload.component';
 import { PipesModule } from './../pipes/pipes.module';
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
@@ -28,14 +29,16 @@ import { AsideToggleDirective } from './aside.directive';
         FooterComponent,
         BreadcrumbsComponent,
         NopagefoundComponent,
-        SidebarComponent
+        SidebarComponent,
+        ModalUploadComponent
     ],
     exports: [
         HeaderComponent,
         FooterComponent,
         BreadcrumbsComponent,
         NopagefoundComponent,
-        SidebarComponent
+        SidebarComponent,
+        ModalUploadComponent
     ]
 })
 export class SharedModule { }

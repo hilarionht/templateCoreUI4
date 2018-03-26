@@ -8,8 +8,8 @@
     "license": "MIT",
     "scripts": {
         "ng": "ng",
-        "start": "ng serve",
-        "build": "ng build",
+        "start": "ng serve -aot -o --port 4100",
+        "build": "ng build -prod -aot false",
         "test": "ng test",
         "lint": "ng lint",
         "e2e": "ng e2e"

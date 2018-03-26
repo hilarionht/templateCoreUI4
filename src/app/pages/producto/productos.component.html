@@ -19,20 +19,21 @@
                 <div class="text-right">
                     <button [routerLink]="['/producto','nuevo']" type="button" class="btn waves-effect waves-light btn-rounded btn-primary">
                   <i class="fa fa-plus"></i> 
-                  Crear Producto
+                  AGREGAR PRODUCTO
                 </button>
                 </div>
 
-                <h3 class="card-title">Productos registrados ( <small> {{ totalRegistros }} </small> )</h3>
+                <h3 class="card-title">PRODUCTOS REGISTRADOS ( <small> {{ totalRegistros }} </small> )</h3>
 
-                <table class="table table-bordered table-striped table-sm">
+                <table class="table table-bordered table-striped table-sm table-hover table-responsive">
                     <thead>
                         <tr>
-                            <th>Nombre</th>
-                            <th>Compra</th>
-                            <th>Venta</th>
-                            <th>Tipo producto</th>
-                            <th></th>
+                            <th>NOMBRE</th>
+                            <th class="align-text-bottom">COMPRA</th>
+                            <th>VENTA</th>
+
+                            <th>TIPO PRODUCTO</th>
+                            <th class="w150">OPCIONES</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -43,15 +44,17 @@
                             <td>
                                 {{ producto.nombre }}
                             </td>
-                            <td>
-                                {{ producto.precioCompra }}
+                            <td style="text-align: right;">
+                                {{ producto.precioCompra | currency }}
                             </td>
-                            <td>
-                                {{ producto.precioVenta }}
+                            <td style="text-align: right;">
+                                {{ producto.precioVenta | currency }}
                             </td>
+
                             <td>
                                 {{ producto.tipoProducto.nombre }}
                             </td>
+
                             <td>
                                 <button [routerLink]="['/producto', producto._id ]" class="btn btn-sm btn-primary ">
                               <i class="fa fa-edit"></i>

@@ -1,9 +1,14 @@
+
 import { SubirArchivoService } from './../subir-archivo/subir-archivo.service';
 import { Injectable } from '@angular/core';
 import { Usuario } from '../../models/usuario.model';
 import { HttpClient } from '@angular/common/http'
 import { URL_SERVICIOS } from '../../config/config';
+
+import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/map';//(immportar solo lo que se use)
+import 'rxjs/add/operator/catch';//(immportar solo lo que se use)
+
 import { Router } from '@angular/router';
 import swal from 'sweetalert2'
 
@@ -79,8 +84,14 @@ export class UsuarioService {
     let url = URL_SERVICIOS + '/login';
     return this.http.post(url,usuario)
               .map( (resp: any) => {
+                console.log( resp );
+                
                 this.guardarStorage(resp.id, resp.token, resp.usuario );
                 return true;
+              }).catch( err => {
+                console.log(err.error.mensaje);
+                swal( 'Error en el login', err.error.mensaje, 'error' );
+                return Observable.throw( err );
               });
   }
   
@@ -141,6 +152,20 @@ export class UsuarioService {
                   return true;
                 });
 
+  }
+  renuevaToken(){
+    let url = URL_SERVICIOS + '/login/renuevatoken';
+    url+= '?token'+ this.token;
+    return this.http.get( url ).map(
+      ( resp: any)=> {
+        this.token = resp.token;
+        localStorage.setItem('token',this.token);
+        return true;
+      }
+    ).catch(err => {
+      this.router.navigate(['/login']);
+      return Observable.throw(err);
+    });
   }
 
 }
