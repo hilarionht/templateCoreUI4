@@ -1,0 +1,312 @@
+{
+	"Documento":
+	{
+		"Orden": 3,
+		"Items":
+		[
+			{
+				"class": "Cliente",
+				"Orden": 0,
+				"NroDocumento": "24314426866",
+				"NroSecuencia": 1,
+				"TipoDocumento": "CUIT",
+				"TipoCliente": "ClienteInscripto",
+				"Nombre": "ABALO RAQUEL FELISA",
+				"Direccion": "ABRA PAMPA"
+			},
+			{
+				"class": "AtributosImpresion",
+				"Orden": 1,
+				"Personalidad": "ImpresorFiscal",
+				"Producto": "SMH/PT-1000F 6.02A",
+				"Modelo": "Hasar SMH/PT-1000F 1.FP1000-64 (en HTML)",
+				"ModeloImpresor": "FP1000-64 (en HTML)",
+				"Estacion": "Ticket",
+				"AnchoPapel": 64,
+				"AltoPapel": 0,
+				"TipoHojaAlto": "AltoA4",
+				"TipoHojaAncho": "AnchoNormal",
+				"ImprimeLeyendasOpcionales": true,
+				"ImprimeCodigos": "NoImprimeCodigos",
+				"ImprimeUnidadesMedida": false,
+				"ImprimeMarcos": false,
+				"ModoEntrenamiento": false,
+				"SignoMonetario": "$",
+				"UsarColorAlternativo": false,
+				"ColorAlternativo": "Negro",
+				"ImprimeQR": false,
+				"TipoInterlineado": "InterlineadoNormal"
+			},
+			{
+				"class": "Emisor",
+				"Orden": 2,
+				"CUIT": "30610400562",
+				"RazonSocial": "Emulador FP1000",
+				"NroRegistro": "ABCDEF0000000001",
+				"FechaInicioActividades": "20140101",
+				"IngBrutos": "ABC123",
+				"TipoEmisor": "EmisorInscripto",
+				"TipoHabilitacion": "ComprobantesA",
+				"LimiteM": 1000
+			},
+			{
+				"class": "LineaUsuario",
+				"Orden": 3,
+				"Estacion": "Ticket",
+				"Tipo": "OwnerAddress",
+				"Linea": 1,
+				"Texto":
+				{
+					"Texto": "Olacapato 1774 - Sector B6",
+					"Atributos":
+					[
+					]
+				}
+			},
+			{
+				"Orden": 4,
+				"Estacion": "Ticket",
+				"Tipo": "OwnerAddress",
+				"Linea": 2,
+				"Texto":
+				{
+					"Texto": "Alto Comedero",
+					"Atributos":
+					[
+					]
+				}
+			},
+			{
+				"Orden": 5,
+				"Estacion": "Ticket",
+				"Tipo": "OwnerAddress",
+				"Linea": 3,
+				"Texto":
+				{
+					"Texto": "San Salvador de Jujuy",
+					"Atributos":
+					[
+					]
+				}
+			},
+			{
+				"Orden": 6,
+				"Estacion": "Ticket",
+				"Tipo": "OwnerAddress",
+				"Linea": 4,
+				"Texto":
+				{
+					"Texto": "Jujuy",
+					"Atributos":
+					[
+					]
+				}
+			},
+			{
+				"Orden": 7,
+				"Estacion": "Ticket",
+				"Tipo": "Fantasy",
+				"Linea": 1,
+				"Texto":
+				{
+					"Texto": "Walter Armando Cruz",
+					"Atributos":
+					[
+					]
+				}
+			},
+			{
+				"class": "Apertura",
+				"Orden": 8,
+				"TipoDocumento": "DocumentoFiscal",
+				"SubTipoDocumento": "Factura",
+				"CalificadorDocumento": "A",
+				"Estacion": "Ticket",
+				"TipoAFIP": 81,
+				"POS": "00002",
+				"Fecha": "180310",
+				"Hora": "161444",
+				"NumeroDocumento": 2,
+				"NumeroCompleto": "00002-00000002",
+				"IdentificadorCopia": "Original"
+			},
+			{
+				"class": "Venta",
+				"Orden": 9,
+				"Descripcion": "AGUJA CABEZA DORADO (X 5)",
+				"CodigoInterno": "0000",
+				"Cantidad": 1,
+				"UnidadesMatrix": 1,
+				"UnidadMedida": "UM_UNIDAD",
+				"Precio": 22,
+				"CondicionIVA": "CondicionIVAGravado",
+				"TasaIVA": 21,
+				"ImpuestoComoCoeficiente": false,
+				"ImpInt": 0,
+				"ImpIntFijo": true,
+				"PorBaseImponible": false,
+				"Desglose":
+				{
+					"Cantidad": 1,
+					"PrecioFinal": 22,
+					"MontoFinal": 22,
+					"TasaIVA": 21,
+					"PrecioBase": 18.1818,
+					"MontoTotalBase": 18.18,
+					"MontoTotalIVA": 3.82,
+					"MontoTotalII": 0,
+					"ImpIntFijo": true,
+					"ConceptosNoGravados": 0,
+					"K": 0
+				}
+			},
+			{
+				"Orden": 10,
+				"Descripcion": "ABRELATA",
+				"CodigoInterno": "0000",
+				"Cantidad": 1,
+				"UnidadesMatrix": 1,
+				"UnidadMedida": "UM_UNIDAD",
+				"Precio": 12,
+				"CondicionIVA": "CondicionIVAGravado",
+				"TasaIVA": 21,
+				"ImpuestoComoCoeficiente": false,
+				"ImpInt": 0,
+				"ImpIntFijo": true,
+				"PorBaseImponible": false,
+				"Desglose":
+				{
+					"Cantidad": 1,
+					"PrecioFinal": 12,
+					"MontoFinal": 12,
+					"TasaIVA": 21,
+					"PrecioBase": 9.9174,
+					"MontoTotalBase": 9.92,
+					"MontoTotalIVA": 2.08,
+					"MontoTotalII": 0,
+					"ImpIntFijo": true,
+					"ConceptosNoGravados": 0,
+					"K": 0
+				}
+			},
+			{
+				"Orden": 11,
+				"Descripcion": "APLICADOR X 12 (NICE CHOICE)",
+				"CodigoInterno": "0000",
+				"Cantidad": 1,
+				"UnidadesMatrix": 1,
+				"UnidadMedida": "UM_UNIDAD",
+				"Precio": 20,
+				"CondicionIVA": "CondicionIVAGravado",
+				"TasaIVA": 21,
+				"ImpuestoComoCoeficiente": false,
+				"ImpInt": 0,
+				"ImpIntFijo": true,
+				"PorBaseImponible": false,
+				"Desglose":
+				{
+					"Cantidad": 1,
+					"PrecioFinal": 20,
+					"MontoFinal": 20,
+					"TasaIVA": 21,
+					"PrecioBase": 16.5289,
+					"MontoTotalBase": 16.53,
+					"MontoTotalIVA": 3.47,
+					"MontoTotalII": 0,
+					"ImpIntFijo": true,
+					"ConceptosNoGravados": 0,
+					"K": 0
+				}
+			},
+			{
+				"class": "DiscriminacionIVA",
+				"Orden": 12,
+				"CondicionIVA": "CondicionIVAGravado",
+				"TasaIVA": 21,
+				"Base": 44.63,
+				"MontoIVA": 9.37
+			},
+			{
+				"class": "Totales",
+				"Orden": 13,
+				"Base": 44.63,
+				"MontoIVA": 9.37,
+				"MontoII": 0,
+				"MontoOtrosTributos": 0,
+				"MontoNoGravado": 0,
+				"MontoExento": 0,
+				"MontoGravado": 44.63,
+				"AjusteRedondeo": 0,
+				"Final": 54,
+				"ImpresionBase": 44.63,
+				"ImpresionMontoIVA": 9.37,
+				"ImpresionMontoII": 0,
+				"ImpresionFinal": 54,
+				"TipoTotales": "TotalesAlFinal"
+			},
+			{
+				"class": "Pago",
+				"Orden": 14,
+				"EsCambio": false,
+				"Monto": 54,
+				"Descripcion": "Efectivo",
+				"Tipo": "PAGOS_EFECTIVO",
+				"Cuotas": 0,
+				"Desglose":
+				{
+					"Monto": 54
+				}
+			},
+			{
+				"Orden": 15,
+				"EsCambio": true,
+				"Monto": 0,
+				"Tipo": "PAGOS_OTROS",
+				"Cuotas": 0,
+				"Desglose":
+				{
+					"Monto": 0
+				}
+			},
+			{
+				"class": "Cierre",
+				"Orden": 16,
+				"TipoDocumento": "DocumentoFiscal",
+				"SubTipoDocumento": "Factura",
+				"CalificadorDocumento": "A",
+				"Estacion": "Ticket",
+				"Registro": "ABCDEF0000000001",
+				"Version": "01.00",
+				"NumeroDocumento": 2,
+				"NumeroCompleto": "00002-00000002",
+				"Totales":
+				{
+					"Total": 54,
+					"TotalBase": 44.63,
+					"TotalNoGravado": 0,
+					"TotalGravado": 44.63,
+					"TotalExento": 0,
+					"TotalIVA": 9.37,
+					"TotalII": 0,
+					"TotalOtrosTributos": 0,
+					"TotalPagos": 54,
+					"OperacionesVenta": "3",
+					"DiscriminacionIVA":
+					[
+						{
+							"class": "IVA",
+							"TasaIVA": 21,
+							"ImpIntFijo": 0,
+							"ImpIntVariable": 0,
+							"NetoSinIVA": 44.63,
+							"MontoIVA": 9.37
+						}
+					],
+					"DiscriminacionOtrosTributos":
+					[
+					]
+				}
+			}
+		]
+	}
+}

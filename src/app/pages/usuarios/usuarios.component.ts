@@ -31,7 +31,8 @@ export class UsuariosComponent implements OnInit {
   }
 
   mostrarModal( id: string ) {
-
+  console.log(id);
+  
     this._modalUploadService.mostrarModal( 'usuarios', id, 'Subir imagen Usuario' );
   }
 

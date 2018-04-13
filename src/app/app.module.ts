@@ -1,3 +1,5 @@
+
+
 import { SharedModule } from './shared/shared.module';
 import { NgModule } from '@angular/core';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
@@ -28,6 +30,11 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 
 import { PagesComponent } from './pages/pages.component';
 
+import { ToastrModule } from 'ngx-toastr';
+import { AppSidebarMinimizerComponent } from './components/app-sidebar-minimizer/app-sidebar-minimizer.component';
+import { ModalUploadComponent } from './components/modal-upload/modal-upload.component';
+// Import directives
+
 @NgModule({
    declarations: [
     AppComponent,
@@ -43,7 +50,9 @@ import { PagesComponent } from './pages/pages.component';
     ChartsModule,
     FormsModule,
     ReactiveFormsModule,
-    ServiceModule,BrowserAnimationsModule,
+    ServiceModule,
+    BrowserAnimationsModule, // required animations module
+    ToastrModule.forRoot(), // ToastrModule added
     SharedModule
     
   ],

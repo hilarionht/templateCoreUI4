@@ -11,6 +11,7 @@ import 'rxjs/add/operator/catch';//(immportar solo lo que se use)
 
 import { Router } from '@angular/router';
 import swal from 'sweetalert2'
+import { ToastrService } from 'ngx-toastr';
 
 
 @Injectable()
@@ -23,7 +24,8 @@ export class UsuarioService {
   constructor( 
     public http: HttpClient, 
     public router: Router,
-    public _subirArchivoService: SubirArchivoService
+    public _subirArchivoService: SubirArchivoService,
+    private toastr: ToastrService
    ) {
      this.cargarStorage();
    }
@@ -57,10 +59,17 @@ export class UsuarioService {
     
     return this.http.post(url, usuario)
       .map((res: any) => {
-
-        swal('Usuario Creado', usuario.email, 'success');
+        console.log(usuario);
+        
+        this.toastr.success( usuario.nombre, 'Usuario Creado!',{ timeOut: 3000,positionClass: 'toast-top-right'});
+        //swal('Usuario Creado', usuario.email, 'success');
         return res.usuario;
-      });
+      }).catch( err => {
+        console.log(err);
+        this.toastr.warning( err.error.errors.message , 'Error en creacion de usuario!',{ timeOut: 3000,positionClass: 'toast-top-right'});
+        //swal( 'Error en el login', err.error.mensaje, 'error' );
+        return Observable.throw( err );
+      });;
   }
 
   guardarStorage(id: string, token: string, usuario: Usuario ){
@@ -90,7 +99,8 @@ export class UsuarioService {
                 return true;
               }).catch( err => {
                 console.log(err.error.mensaje);
-                swal( 'Error en el login', err.error.mensaje, 'error' );
+                this.toastr.warning( err.error.mensaje , 'Error de login!',{ timeOut: 3000,positionClass: 'toast-top-right'});
+                //swal( 'Error en el login', err.error.mensaje, 'error' );
                 return Observable.throw( err );
               });
   }
@@ -107,8 +117,8 @@ export class UsuarioService {
                     let usuarioDB: Usuario = resp.usuario;
                     this.guardarStorage( usuarioDB._id, this.token, usuarioDB );
                   }
-
-                  swal('Usuario actualizado', usuario.nombre, 'success' );
+                  this.toastr.success( this.usuario.nombre, 'Usuario Actualizado!',{ timeOut: 3000,positionClass: 'toast-top-right'});
+                  //swal('Usuario actualizado', usuario.nombre, 'success' );
 
                   return true;
                 });
@@ -120,7 +130,7 @@ export class UsuarioService {
           .then( (resp: any) => {
 
             this.usuario.img = resp.usuario.img;
-            swal( 'Imagen Actualizada', this.usuario.nombre, 'success' );
+            this.toastr.success( this.usuario.nombre, 'Imagen Actualizada!',{ timeOut: 3000,positionClass: 'toast-top-right'});//swal( 'Imagen Actualizada', this.usuario.nombre, 'success' );
             this.guardarStorage( id, this.token, this.usuario );
 
           })
@@ -148,7 +158,8 @@ export class UsuarioService {
     url += '?token=' + this.token;
     return this.http.delete( url )
                 .map( resp => {
-                  swal('Usuario borrado', 'El usuario a sido eliminado correctamente', 'success');
+                  this.toastr.success( 'El usuario a sido eliminado correctamente', 'USUARIO BORRADO!',{ timeOut: 3000,positionClass: 'toast-top-right'});
+                  //swal('Usuario borrado', 'El usuario a sido eliminado correctamente', 'success');
                   return true;
                 });
 

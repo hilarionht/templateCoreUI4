@@ -1,0 +1,367 @@
+{
+	"Documento":
+	{
+		"Orden": 0,
+		"Items":
+		[
+			{
+				"class": "Cliente",
+				"Orden": 0,
+				"NroSecuencia": 1,
+				"TipoDocumento": "SinDocumento",
+				"TipoCliente": "ClienteConsumidorFinal"
+			},
+			{
+				"class": "AtributosImpresion",
+				"Orden": 1,
+				"Personalidad": "ImpresorFiscal",
+				"Producto": "SMH/PT-1000F 6.02A",
+				"Modelo": "Hasar SMH/PT-1000F 1.FP1000-64 (en HTML)",
+				"ModeloImpresor": "FP1000-64 (en HTML)",
+				"Estacion": "Ticket",
+				"AnchoPapel": 64,
+				"AltoPapel": 0,
+				"TipoHojaAlto": "AltoA4",
+				"TipoHojaAncho": "AnchoNormal",
+				"ImprimeLeyendasOpcionales": true,
+				"ImprimeCodigos": "NoImprimeCodigos",
+				"ImprimeUnidadesMedida": false,
+				"ImprimeMarcos": false,
+				"ModoEntrenamiento": false,
+				"SignoMonetario": "$",
+				"UsarColorAlternativo": false,
+				"ColorAlternativo": "Negro",
+				"ImprimeQR": false,
+				"TipoInterlineado": "InterlineadoNormal"
+			},
+			{
+				"class": "Emisor",
+				"Orden": 2,
+				"CUIT": "30610400562",
+				"RazonSocial": "Emulador FP1000",
+				"NroRegistro": "ABCDEF0000000001",
+				"FechaInicioActividades": "20140101",
+				"IngBrutos": "ABC123",
+				"TipoEmisor": "EmisorInscripto",
+				"TipoHabilitacion": "ComprobantesA",
+				"LimiteM": 1000
+			},
+			{
+				"class": "LineaUsuario",
+				"Orden": 3,
+				"Estacion": "Ticket",
+				"Tipo": "OwnerAddress",
+				"Linea": 1,
+				"Texto":
+				{
+					"Texto": "Olacapato 1774 - Sector B6",
+					"Atributos":
+					[
+					]
+				}
+			},
+			{
+				"Orden": 4,
+				"Estacion": "Ticket",
+				"Tipo": "OwnerAddress",
+				"Linea": 2,
+				"Texto":
+				{
+					"Texto": "Alto Comedero",
+					"Atributos":
+					[
+					]
+				}
+			},
+			{
+				"Orden": 5,
+				"Estacion": "Ticket",
+				"Tipo": "OwnerAddress",
+				"Linea": 3,
+				"Texto":
+				{
+					"Texto": "San Salvador de Jujuy",
+					"Atributos":
+					[
+					]
+				}
+			},
+			{
+				"Orden": 6,
+				"Estacion": "Ticket",
+				"Tipo": "OwnerAddress",
+				"Linea": 4,
+				"Texto":
+				{
+					"Texto": "Jujuy",
+					"Atributos":
+					[
+					]
+				}
+			},
+			{
+				"Orden": 7,
+				"Estacion": "Ticket",
+				"Tipo": "Fantasy",
+				"Linea": 1,
+				"Texto":
+				{
+					"Texto": "Walter Armando Cruz",
+					"Atributos":
+					[
+					]
+				}
+			},
+			{
+				"class": "Apertura",
+				"Orden": 8,
+				"TipoDocumento": "DocumentoFiscal",
+				"SubTipoDocumento": "Factura",
+				"CalificadorDocumento": "B",
+				"Estacion": "Ticket",
+				"TipoAFIP": 82,
+				"POS": "00002",
+				"Fecha": "180310",
+				"Hora": "145557",
+				"NumeroDocumento": 3,
+				"NumeroCompleto": "00002-00000003",
+				"IdentificadorCopia": "Original"
+			},
+			{
+				"class": "Venta",
+				"Orden": 9,
+				"Descripcion": "AGUJA CANASTO",
+				"CodigoInterno": "0000",
+				"Cantidad": 1,
+				"UnidadesMatrix": 1,
+				"UnidadMedida": "UM_UNIDAD",
+				"Precio": 2.5,
+				"CondicionIVA": "CondicionIVAGravado",
+				"TasaIVA": 21,
+				"ImpuestoComoCoeficiente": false,
+				"ImpInt": 0,
+				"ImpIntFijo": true,
+				"PorBaseImponible": false,
+				"Desglose":
+				{
+					"Cantidad": 1,
+					"PrecioFinal": 2.5,
+					"MontoFinal": 2.5,
+					"TasaIVA": 21,
+					"PrecioBase": 2.0661,
+					"MontoTotalBase": 2.07,
+					"MontoTotalIVA": 0.43,
+					"MontoTotalII": 0,
+					"ImpIntFijo": true,
+					"ConceptosNoGravados": 0,
+					"K": 0
+				}
+			},
+			{
+				"Orden": 10,
+				"Descripcion": "ACEITE AEROSOL (NECHI 250 C.C)",
+				"CodigoInterno": "0000",
+				"Cantidad": 1,
+				"UnidadesMatrix": 1,
+				"UnidadMedida": "UM_UNIDAD",
+				"Precio": 35,
+				"CondicionIVA": "CondicionIVAGravado",
+				"TasaIVA": 21,
+				"ImpuestoComoCoeficiente": false,
+				"ImpInt": 0,
+				"ImpIntFijo": true,
+				"PorBaseImponible": false,
+				"Desglose":
+				{
+					"Cantidad": 1,
+					"PrecioFinal": 35,
+					"MontoFinal": 35,
+					"TasaIVA": 21,
+					"PrecioBase": 28.9256,
+					"MontoTotalBase": 28.93,
+					"MontoTotalIVA": 6.07,
+					"MontoTotalII": 0,
+					"ImpIntFijo": true,
+					"ConceptosNoGravados": 0,
+					"K": 0
+				}
+			},
+			{
+				"Orden": 11,
+				"Descripcion": "AGUJA MAQUINA (X 10 UN)",
+				"CodigoInterno": "0000",
+				"Cantidad": 1,
+				"UnidadesMatrix": 1,
+				"UnidadMedida": "UM_UNIDAD",
+				"Precio": 4,
+				"CondicionIVA": "CondicionIVAGravado",
+				"TasaIVA": 21,
+				"ImpuestoComoCoeficiente": false,
+				"ImpInt": 0,
+				"ImpIntFijo": true,
+				"PorBaseImponible": false,
+				"Desglose":
+				{
+					"Cantidad": 1,
+					"PrecioFinal": 4,
+					"MontoFinal": 4,
+					"TasaIVA": 21,
+					"PrecioBase": 3.3058,
+					"MontoTotalBase": 3.31,
+					"MontoTotalIVA": 0.69,
+					"MontoTotalII": 0,
+					"ImpIntFijo": true,
+					"ConceptosNoGravados": 0,
+					"K": 0
+				}
+			},
+			{
+				"Orden": 12,
+				"Descripcion": "ALCOHOL EN GEL (PORTA NEUTRO 250 ML.)",
+				"CodigoInterno": "0000",
+				"Cantidad": 1,
+				"UnidadesMatrix": 1,
+				"UnidadMedida": "UM_UNIDAD",
+				"Precio": 27,
+				"CondicionIVA": "CondicionIVAGravado",
+				"TasaIVA": 21,
+				"ImpuestoComoCoeficiente": false,
+				"ImpInt": 0,
+				"ImpIntFijo": true,
+				"PorBaseImponible": false,
+				"Desglose":
+				{
+					"Cantidad": 1,
+					"PrecioFinal": 27,
+					"MontoFinal": 27,
+					"TasaIVA": 21,
+					"PrecioBase": 22.314,
+					"MontoTotalBase": 22.31,
+					"MontoTotalIVA": 4.69,
+					"MontoTotalII": 0,
+					"ImpIntFijo": true,
+					"ConceptosNoGravados": 0,
+					"K": 0
+				}
+			},
+			{
+				"Orden": 13,
+				"Descripcion": "AGUJA MAQUINA (X 10 UN)",
+				"CodigoInterno": "0000",
+				"Cantidad": 1,
+				"UnidadesMatrix": 1,
+				"UnidadMedida": "UM_UNIDAD",
+				"Precio": 4,
+				"CondicionIVA": "CondicionIVAGravado",
+				"TasaIVA": 21,
+				"ImpuestoComoCoeficiente": false,
+				"ImpInt": 0,
+				"ImpIntFijo": true,
+				"PorBaseImponible": false,
+				"Desglose":
+				{
+					"Cantidad": 1,
+					"PrecioFinal": 4,
+					"MontoFinal": 4,
+					"TasaIVA": 21,
+					"PrecioBase": 3.3058,
+					"MontoTotalBase": 3.3,
+					"MontoTotalIVA": 0.7,
+					"MontoTotalII": 0,
+					"ImpIntFijo": true,
+					"ConceptosNoGravados": 0,
+					"K": 0
+				}
+			},
+			{
+				"class": "DiscriminacionIVA",
+				"Orden": 14,
+				"CondicionIVA": "CondicionIVAGravado",
+				"TasaIVA": 21,
+				"Base": 59.92,
+				"MontoIVA": 12.58
+			},
+			{
+				"class": "Totales",
+				"Orden": 15,
+				"Base": 59.92,
+				"MontoIVA": 12.58,
+				"MontoII": 0,
+				"MontoOtrosTributos": 0,
+				"MontoNoGravado": 0,
+				"MontoExento": 0,
+				"MontoGravado": 59.92,
+				"AjusteRedondeo": 0,
+				"Final": 72.5,
+				"ImpresionBase": 59.93,
+				"ImpresionMontoIVA": 12.57,
+				"ImpresionMontoII": 0,
+				"ImpresionFinal": 72.5,
+				"TipoTotales": "TotalesAlFinal"
+			},
+			{
+				"class": "Pago",
+				"Orden": 16,
+				"EsCambio": false,
+				"Monto": 72.5,
+				"Descripcion": "Efectivo",
+				"Tipo": "PAGOS_EFECTIVO",
+				"Cuotas": 0,
+				"Desglose":
+				{
+					"Monto": 72.5
+				}
+			},
+			{
+				"Orden": 17,
+				"EsCambio": true,
+				"Monto": 0,
+				"Tipo": "PAGOS_OTROS",
+				"Cuotas": 0,
+				"Desglose":
+				{
+					"Monto": 0
+				}
+			},
+			{
+				"class": "Cierre",
+				"Orden": 18,
+				"TipoDocumento": "DocumentoFiscal",
+				"SubTipoDocumento": "Factura",
+				"CalificadorDocumento": "B",
+				"Estacion": "Ticket",
+				"Registro": "ABCDEF0000000001",
+				"Version": "01.00",
+				"NumeroDocumento": 3,
+				"NumeroCompleto": "00002-00000003",
+				"Totales":
+				{
+					"Total": 72.5,
+					"TotalBase": 59.92,
+					"TotalNoGravado": 0,
+					"TotalGravado": 59.92,
+					"TotalExento": 0,
+					"TotalIVA": 12.58,
+					"TotalII": 0,
+					"TotalOtrosTributos": 0,
+					"TotalPagos": 72.5,
+					"OperacionesVenta": "5",
+					"DiscriminacionIVA":
+					[
+						{
+							"class": "IVA",
+							"TasaIVA": 21,
+							"ImpIntFijo": 0,
+							"ImpIntVariable": 0,
+							"NetoSinIVA": 59.92,
+							"MontoIVA": 12.58
+						}
+					],
+					"DiscriminacionOtrosTributos":
+					[
+					]
+				}
+			}
+		]
+	}
+}

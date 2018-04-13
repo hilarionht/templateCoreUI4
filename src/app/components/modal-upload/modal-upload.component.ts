@@ -1,3 +1,4 @@
+import { ToastrService } from 'ngx-toastr';
 import { Component, OnInit } from '@angular/core';
 import { SubirArchivoService } from '../../services/subir-archivo/subir-archivo.service';
 import { ModalUploadService } from './modal-upload.service';
@@ -16,7 +17,8 @@ export class ModalUploadComponent implements OnInit {
 
   constructor(
     public _subirArchivoService: SubirArchivoService,
-    public _modalUploadService: ModalUploadService
+    public _modalUploadService: ModalUploadService,
+    public toastr: ToastrService
   ) { }
 
   ngOnInit() {
@@ -37,6 +39,7 @@ export class ModalUploadComponent implements OnInit {
     }
 
     if ( archivo.type.indexOf('image') < 0 ) {
+      this.toastr.warning('El archivo seleccionado no es una imagen', 'Solo imagenes!');
       swal('Sólo imágenes', 'El archivo seleccionado no es una imagen', 'error');
       this.imagenSubir = null;
       return;

@@ -4,6 +4,7 @@ import { UsuarioService } from '../services/service.index';
 import { Usuario } from '../models/usuario.model';
 import { Router, ActivatedRoute } from '@angular/router';
 
+import { ToastrService } from 'ngx-toastr';
 declare const gapi: any;
 
 @Component({
@@ -16,7 +17,9 @@ export class LoginComponent implements OnInit {
   auth2: any;
   constructor(  public _userService: UsuarioService, 
                 public router: Router,
-                public activatedRoute: ActivatedRoute, ) { }
+                public activatedRoute: ActivatedRoute,
+                private toastr: ToastrService
+               ) { }
 
   ngOnInit() {
     this.googleInit();

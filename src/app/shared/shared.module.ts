@@ -1,4 +1,5 @@
-import { ModalUploadComponent } from './../components/modal-upload/modal-upload.component';
+import { AppSidebarMinimizerComponent } from './../components/app-sidebar-minimizer/app-sidebar-minimizer.component';
+
 import { PipesModule } from './../pipes/pipes.module';
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
@@ -14,6 +15,9 @@ import { NopagefoundComponent } from 'app/shared/nopagefound/nopagefound.compone
 
 import { SIDEBAR_TOGGLE_DIRECTIVES } from './sidebar.directive';
 import { AsideToggleDirective } from './aside.directive';
+import { ModalUploadComponent } from './../components/modal-upload/modal-upload.component';
+
+  
 
 
 @NgModule({
@@ -30,7 +34,8 @@ import { AsideToggleDirective } from './aside.directive';
         BreadcrumbsComponent,
         NopagefoundComponent,
         SidebarComponent,
-        ModalUploadComponent
+        ModalUploadComponent,
+        AppSidebarMinimizerComponent
     ],
     exports: [
         HeaderComponent,
@@ -38,7 +43,8 @@ import { AsideToggleDirective } from './aside.directive';
         BreadcrumbsComponent,
         NopagefoundComponent,
         SidebarComponent,
-        ModalUploadComponent
+        ModalUploadComponent,
+        AppSidebarMinimizerComponent
     ]
 })
 export class SharedModule { }

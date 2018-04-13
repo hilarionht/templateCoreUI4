@@ -1,3 +1,4 @@
+export { FacturaService } from './factura/factura.service';
 
 export { MarcaService } from './marca/marca.service';
 export { ModeloService } from './modelo/modelo.service';

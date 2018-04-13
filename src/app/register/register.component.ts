@@ -1,9 +1,12 @@
+import { FacturacionService } from './../services/facturacion/facturacion.service';
+import { ToastrService } from 'ngx-toastr';
 
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators} from '@angular/forms';
 import swal from 'sweetalert2'
 import { Usuario } from '../models/usuario.model';
 import { UsuarioService } from '../services/usuario/usuario.service';
+
 import { Router } from '@angular/router';
 
 @Component({
@@ -15,6 +18,7 @@ export class RegisterComponent implements OnInit {
   public forma: FormGroup;
   constructor(
     public _usuarioService: UsuarioService,
+    private toastr: ToastrService,
     public router: Router
   ) { }
   
@@ -57,8 +61,9 @@ export class RegisterComponent implements OnInit {
     }
     if( !this.forma.value.condiciones ){
       // console.log('debe aceptar las condiciones!');
-      swal('Importante!', 'debe aceptar las condiciones!', 'success');
-      
+      //swal('Importante!', 'debe aceptar las condiciones!', 'success');
+      this.toastr.info( 'Debe haceptar las condiciones', 'Importante!',{ timeOut: 3000,positionClass: 'toast-top-right'});
+      return;
     }
    let usuario = new Usuario(
      this.forma.value.nombre,

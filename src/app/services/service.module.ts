@@ -12,7 +12,8 @@ import {
     SubirArchivoService,
     MarcaService,
     ModeloService,
-    VerificaTokenGuard
+    VerificaTokenGuard,
+    FacturaService
 
  } from './service.index';
 import { HttpClientModule } from '@angular/common/http';
@@ -34,7 +35,8 @@ import { HttpClientModule } from '@angular/common/http';
         ModalUploadService,
         MarcaService,
         ModeloService,
-        VerificaTokenGuard
+        VerificaTokenGuard,
+        FacturaService
     ],
     declarations:[]
 })
